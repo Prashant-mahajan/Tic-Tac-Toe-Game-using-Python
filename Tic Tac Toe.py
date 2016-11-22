@@ -14,5 +14,3 @@ def drawBoard(board):
 	print("" + board[1] + "|" + board[2] + "|" + board[3])
 	print("	|	|")
 
-# draw = [' ', ' ', ' ', ' ', 'X', 'O', ' ', 'X', ' ', 'O'];
-# drawBoard(draw);

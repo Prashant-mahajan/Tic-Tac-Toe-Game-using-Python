@@ -34,3 +34,26 @@ def whoGoesFirst():
 def playAgain():
 	print("Do you want to play again? (yes or no) ")
 	return input().lower().startswith('y')	
+
+def makeMove(board,letter,move):
+	board[move] = letter
+
+def isWinner(board, letter):
+	return ((board[7] == letter and board[8] == letter and board[9] == letter) or
+			(board[6] == letter and board[5] == letter and board[4] == letter) or
+			(board[1] == letter and board[2] == letter and board[3] == letter) or
+			(board[1] == letter and board[4] == letter and board[7] == letter) or
+			(board[2] == letter and board[5] == letter and board[8] == letter) or 
+			(board[3] == letter and board[6] == letter and board[9] == letter) or 
+			(board[1] == letter and board[5] == letter and board[9] == letter) or
+			(board[3] == letter and board[5] == letter and board[7] == letter))
+
+def getBoardCopy(board):
+	dupeBoard = []
+	for i in board:
+		dupeBoard.append(i)
+	return dupeBoard
+
+def isSpaceFree(board, move):
+	return board[move] == ''
+

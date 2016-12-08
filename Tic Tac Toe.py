@@ -137,6 +137,19 @@ def isBoardFull(board):
 
 
 print("Welcome to Tic Tac Toe!")
+print("The board is numbered like the keyboard's number pad.")
+print('Postions are shown below:')
+print('   |   |')
+print(' 7'  + ' | ' + '8' + ' | ' + '9')
+print('   |   |')
+print('-----------')
+print('   |   |')
+print(' 4'  + ' | ' + '5' + ' | ' + '6')
+print('   |   |')
+print('-----------')
+print('   |   |')
+print(' 1'  + ' | ' + '2' + ' | ' + '3')
+print('   |   |')
 
 while True:
     # Reset the board

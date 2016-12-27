@@ -1,7 +1,5 @@
 # Tic Tac Toe game
 import random
-
-
 def drawBoard(board):
     print('   |   |')
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
@@ -15,7 +13,6 @@ def drawBoard(board):
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
 
-
 def inputPlayerLetter():
     letter = ''
     while not (letter == 'X' or letter == 'O'):
@@ -28,19 +25,16 @@ def inputPlayerLetter():
     else:
         return ['O', 'X']
 
-
 def whoGoesFirst():
     if random.randint(0, 1) == 0:
         return 'computer'
     else:
         return 'player'
 
-
 # function returns True if the player types in 'yes', 'YES', 'y', or anything that begins with the letter Y
 def playAgain():
     print('Do you want to play again? (yes or no) ')
     return raw_input().lower().startswith('y')
-
 
 def makeMove(board, letter, move):
     """
@@ -48,7 +42,6 @@ def makeMove(board, letter, move):
     :type board: object
     """
     board[move] = letter
-
 
 def isWinner(bo, le):
     return ((bo[7] == le and bo[8] == le and bo[9] == le) or  # across the top
@@ -60,19 +53,14 @@ def isWinner(bo, le):
             (bo[7] == le and bo[5] == le and bo[3] == le) or  # diagonal
             (bo[9] == le and bo[5] == le and bo[1] == le))  # diagonal
 
-
 def getBoardCopy(board):
     dupeBoard = []
-
     for i in board:
         dupeBoard.append(i)
-
     return dupeBoard
-
 
 def isSpaceFree(board, move):
     return board[move] == ' '
-
 
 def getPlayerMove(board):
     move = ' '
@@ -81,19 +69,16 @@ def getPlayerMove(board):
         move = raw_input()
     return int(move)
 
-
 def chooseRandomMoveFromList(board, moveList):
     # movesList is a list of integers of possible spaces from which to choose
     possibleMoves = []
     for i in moveList:
         if isSpaceFree(board, i):
             possibleMoves.append(i)
-
     if len(possibleMoves) != 0:
         return random.choice(possibleMoves)
     else:
         return None
-
 
 def getComputerMove(board, computerLetter):
     if computerLetter == 'X':
@@ -108,7 +93,7 @@ def getComputerMove(board, computerLetter):
             if isWinner(copy, computerLetter):
                 return i
 
-                # check if player could win on their next move & block them.
+    # check if player could win on their next move & block them.
     for i in range(1, 10):
         copy = getBoardCopy(board)
         if isSpaceFree(copy, i):
@@ -128,13 +113,11 @@ def getComputerMove(board, computerLetter):
     # take sides
     return chooseRandomMoveFromList(board, [2, 4, 6, 8])
 
-
 def isBoardFull(board):
     for i in range(1, 10):
         if isSpaceFree(board, i):
             return False
     return True
-
 
 print("Welcome to Tic Tac Toe!")
 print("The board is numbered like the keyboard's number pad.")
@@ -177,7 +160,6 @@ while True:
                     break
                 else:
                     turn = 'computer'
-
         else:
             # Computer's turn.
             move = getComputerMove(theBoard, computerLetter)
